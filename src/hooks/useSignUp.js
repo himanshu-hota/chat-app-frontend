@@ -26,7 +26,6 @@ const useSignUp = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`, // Replace with your actual 
                 },
                 body: JSON.stringify(formData)
             }
