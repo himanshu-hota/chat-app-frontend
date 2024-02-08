@@ -11,10 +11,15 @@ const useGetConversation = () => {
         const getConversation = async () => {
             setLoading(true);
             try {
+                const token = localStorage.getItem('chat-user-token');
                 const ENDPOINT = import.meta.env.VITE_ENDPOINT;
                 const url = ENDPOINT + `/api/users`;
                 const options = {
                     method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`, // Replace with your actual 
+                    },
                     credentials: 'include',
                 }
                 const res = await fetch(url, options);

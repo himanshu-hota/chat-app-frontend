@@ -10,12 +10,15 @@ const useLogout = () => {
     const logout = async () => {
         try {
             setLoading(true);
-
+            const token = localStorage.getItem('chat-user-token');
             const ENDPOINT = import.meta.env.VITE_ENDPOINT;
             const url = ENDPOINT + '/api/auth/logout';
             const options = {
                 method: 'POST',
-                headers: { "Content-Type": "application/json" }
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`, // Replace with your actual 
+                },
             };
 
             const res = await fetch(url, options);

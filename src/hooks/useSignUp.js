@@ -25,8 +25,8 @@ const useSignUp = () => {
             const options = {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
-
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`, // Replace with your actual 
                 },
                 body: JSON.stringify(formData)
             }
@@ -36,6 +36,7 @@ const useSignUp = () => {
             if (!res.ok || data.error) throw new Error('Something went wrong');
 
             localStorage.setItem('chat-user', JSON.stringify(data));
+            localStorage.setItem('chat-user-token', data?.token);
             setAuthUser(data);
             toast.success(`Fantastic, Signup Successful`);
             navigate('/');
