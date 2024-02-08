@@ -17,7 +17,8 @@ const useLogin = () => {
 
         try {
             setLoading(true);
-            const url = 'api/auth/login';
+            const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+            const url = ENDPOINT + '/api/auth/login';
             const options = {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },

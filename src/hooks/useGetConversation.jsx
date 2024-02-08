@@ -11,8 +11,13 @@ const useGetConversation = () => {
         const getConversation = async () => {
             setLoading(true);
             try {
-                const url = '/api/users';
-                const res = await fetch(url);
+                const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+                const url = ENDPOINT + `/api/users`;
+                const options = {
+                    method: 'GET',
+                    credentials: 'include',
+                }
+                const res = await fetch(url, options);
                 const data = await res.json();
 
                 if (!res.ok || data.error) {

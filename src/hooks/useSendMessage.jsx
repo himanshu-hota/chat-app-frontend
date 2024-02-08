@@ -10,11 +10,13 @@ const useSendMessage = () => {
         try {
             setLoading(true);
 
-            const url = `/api/messages/send/${selectedConversation?._id.toString()}`
+            const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+            const url = ENDPOINT + `/api/messages/send/${selectedConversation?._id.toString()}`
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ message }),
+                credentials: 'include'
             }
             const res = await fetch(url, options);
             const data = await res.json();

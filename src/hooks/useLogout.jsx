@@ -11,7 +11,8 @@ const useLogout = () => {
         try {
             setLoading(true);
 
-            const url = '/api/auth/logout';
+            const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+            const url = ENDPOINT + '/api/auth/logout';
             const options = {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }

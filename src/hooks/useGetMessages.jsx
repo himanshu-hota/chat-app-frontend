@@ -11,8 +11,13 @@ const useGetMessages = () => {
 
             try {
                 setLoading(true);
-                const url = `/api/messages/${selectedConversation._id.toString()}`;
-                const res = await fetch(url);
+                const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+                const url = ENDPOINT + `/api/messages/${selectedConversation._id.toString()}`;
+                const options = {
+                    method: 'GET',
+                    credentials: 'include',
+                }
+                const res = await fetch(url, options);
                 const data = await res.json();
                 setMessages(data);
 

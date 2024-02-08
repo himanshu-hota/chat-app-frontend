@@ -20,7 +20,8 @@ const useSignUp = () => {
 
         try {
             setLoading(true);
-            const url = '/api/auth/signup';
+            const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+            const url = ENDPOINT + '/api/auth/signup';
             const options = {
                 method: 'POST',
                 headers: {
