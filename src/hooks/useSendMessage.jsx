@@ -19,7 +19,7 @@ const useSendMessage = () => {
                     'Authorization': `Bearer ${token}`, // Replace with your actual 
                 },
                 body: JSON.stringify({ message }),
-                credentials: 'include'
+
             }
             const res = await fetch(url, options);
             const data = await res.json();

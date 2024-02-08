@@ -20,7 +20,7 @@ const useGetConversation = () => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`, // Replace with your actual 
                     },
-                    credentials: 'include',
+
                 }
                 const res = await fetch(url, options);
                 const data = await res.json();
